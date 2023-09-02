@@ -17,6 +17,5 @@ apt install -y devscripts
 dpkg-deb --build ./nvidia-driver-"$DRIVER"/
 
 # Move the debs to output
-cd ../
 mkdir -p ./output
 mv ./*.deb ./output/
