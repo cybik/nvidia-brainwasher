@@ -1,5 +1,5 @@
 #! /bin/bash
-DRIVER=535
+DRIVER=525
 DEBIAN_FRONTEND=noninteractive
 
 # Clone Upstream
