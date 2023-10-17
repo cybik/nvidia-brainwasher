@@ -4,7 +4,7 @@ DEBIAN_FRONTEND=noninteractive
 
 # Clone Upstream
 #apt download nvidia-driver-"$DRIVER"
-https://ppa.pika-os.com/pool/main/n/nvidia-graphics-drivers-535/nvidia-driver-535.deb
+wget https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/pool/main/n/nvidia-graphics-drivers-535/nvidia-driver-535_535.113.01-0ubuntu3_amd64.deb
 ar -x ./nvidia-driver-"$DRIVER"*.deb
 mkdir -p ./nvidia-driver-"$DRIVER"/DEBIAN
 tar -xf ./control.tar.* -C ./nvidia-driver-"$DRIVER"/DEBIAN/
