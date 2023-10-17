@@ -4,11 +4,11 @@ DEBIAN_FRONTEND=noninteractive
 
 # Clone Upstream
 echo 'Package: *' > /etc/apt/preferences.d/0-a
-echo 'Pin: release c=ubuntu' >> /etc/apt/preferences.d/0-a
+echo 'Pin: release c=external' >> /etc/apt/preferences.d/0-a
 echo 'Pin-Priority: 1000' >> /etc/apt/preferences.d/0-a
-#apt update -y
-#apt download nvidia-driver-"$DRIVER"
-wget https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/pool/main/n/nvidia-graphics-drivers-535/nvidia-driver-535_535.113.01-0ubuntu3_amd64.deb
+apt update -y
+apt download nvidia-driver-"$DRIVER"
+#wget https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/pool/main/n/nvidia-graphics-drivers-535/nvidia-driver-535_535.113.01-0ubuntu3_amd64.deb
 ar -x ./nvidia-driver-"$DRIVER"*.deb
 mkdir -p ./nvidia-driver-"$DRIVER"/DEBIAN
 tar -xf ./control.tar.* -C ./nvidia-driver-"$DRIVER"/DEBIAN/
