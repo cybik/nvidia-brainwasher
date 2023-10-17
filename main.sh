@@ -18,4 +18,7 @@ dpkg-deb --build ./nvidia-driver-"$DRIVER"/
 
 # Move the debs to output
 mkdir -p ./output
-mv ./*.deb ./output/
+for i in ./*.deb
+do
+  mv $i ./output/$i-"$(apt-cache show nvidia-kernel-source-$DRIVER | grep Version: | head -n1 | cut -f2 -d":" | tr -d ' ')".deb
+fi
