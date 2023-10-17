@@ -3,6 +3,10 @@ DRIVER=535
 DEBIAN_FRONTEND=noninteractive
 
 # Clone Upstream
+echo 'Package: *' > /etc/apt/preferences.d/0-a
+echo 'Pin: release c=ubuntu' >> /etc/apt/preferences.d/0-a
+echo 'Pin-Priority: 1000' >> /etc/apt/preferences.d/0-a
+#apt update -y
 #apt download nvidia-driver-"$DRIVER"
 wget https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/pool/main/n/nvidia-graphics-drivers-535/nvidia-driver-535_535.113.01-0ubuntu3_amd64.deb
 ar -x ./nvidia-driver-"$DRIVER"*.deb
@@ -22,4 +26,4 @@ mkdir -p ./output
 for i in ./*.deb
 do
   mv $i ./output/$i-"$(apt-cache show nvidia-kernel-source-$DRIVER | grep Version: | head -n1 | cut -f2 -d":" | tr -d ' ')".deb
-fi
+done
