@@ -23,8 +23,10 @@ tar -xf ./data.tar.* -C ./nvidia-driver-"$DRIVER"/
 sed -i "s#nvidia-dkms-"$DRIVER"#nvidia-pika-kernel-module-"$DRIVER" | nvidia-dkms-"$DRIVER"#" ./nvidia-driver-"$DRIVER"/DEBIAN/control
 sed -i "s#$(cat ./nvidia-driver-"$DRIVER"/DEBIAN/control | grep "Version: ")#$(cat ./nvidia-driver-"$DRIVER"/DEBIAN/control | grep "Version: ")-100pika2#" ./nvidia-driver-"$DRIVER"/DEBIAN/control
 
-if [[ "$(cat ./pika_nvidia.txt)" >= "$(cat ./new_nvidia.txt)" ]]
-then
+pika_nvidia=$(cat ./pika_nvidia.txt)
+new_nvidia=$(cat ./new_nvidia.txt)
+
+if ((new_nvidia >= pika_nvidia)); then
   echo "driver up to date"
   exit 0
 fi
