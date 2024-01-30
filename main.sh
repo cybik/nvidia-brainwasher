@@ -13,7 +13,7 @@ echo 'Pin: release c=ubuntu' >> /etc/apt/preferences.d/0-a
 echo 'Pin-Priority: 1000' >> /etc/apt/preferences.d/0-a
 # Clone Upstream
 apt update -y
-apt show nvidia-driver-$DRIVER 2>&1 | grep -v "does not have a stable" | grep Version: | head -n1 | cut -f2 -d":" | cut -f1,2,3 -d"." | cut -f1 -d"-" | tr -d ' ' > new_nvidia.txt
+apt show nvidia-driver-$DRIVER 2>&1 | grep -v "does not have a stable" | grep Version: | head -n1 | cut -f2 -d":" | tr -d ' ' > new_nvidia.txt
 apt download nvidia-driver-"$DRIVER"
 #wget https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/pool/main/n/nvidia-graphics-drivers-545/nvidia-driver-545_545.113.01-0ubuntu3_amd64.deb
 ar -x ./nvidia-driver-"$DRIVER"*.deb
