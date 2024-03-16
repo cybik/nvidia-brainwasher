@@ -23,11 +23,11 @@ rm -rf ./nvidia-driver-"$DRIVER"*.deb
 
 echo "$(cat ./nvidia-driver-"$DRIVER"/DEBIAN/control | grep "Version: " | cut -f2 -d":" | tr -d ' ')-100pika6" > ./build_version.txt
 
-#if cat ./build_version.txt | grep "$(cat ./pika_nvidia.txt)"
-#then
-  #echo "driver already built"
-  #exit 0
-#fi
+if cat ./build_version.txt | grep "$(cat ./pika_nvidia.txt)"
+then
+  echo "driver already built"
+  exit 0
+fi
 
 sed -i "s#nvidia-dkms-"$DRIVER"#nvidia-pika-kernel-module-"$DRIVER" | nvidia-dkms-"$DRIVER"#" ./nvidia-driver-"$DRIVER"/DEBIAN/control
 sed -i "s#$(cat ./nvidia-driver-"$DRIVER"/DEBIAN/control | grep "Version: ")#$(cat ./nvidia-driver-"$DRIVER"/DEBIAN/control | grep "Version: ")-100pika6#" ./nvidia-driver-"$DRIVER"/DEBIAN/control
