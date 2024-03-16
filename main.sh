@@ -1,5 +1,5 @@
 #! /bin/bash
-DRIVER=545
+DRIVER=550
 DEBIAN_FRONTEND=noninteractive
 
 
