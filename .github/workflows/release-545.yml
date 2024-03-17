@@ -1,4 +1,4 @@
-name: PikaOS Package Release
+name: PikaOS Package Release (Nvidia brainwash 545)
 
 on:
   workflow_dispatch:
@@ -36,7 +36,7 @@ jobs:
       run: apt-get update -y
     
     - name: Build Package
-      run: ./main.sh
+      run: ./545.sh
 
     - name: Release Package
       run: ./release.sh
