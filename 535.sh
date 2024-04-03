@@ -26,7 +26,7 @@ echo "$(cat ./nvidia-driver-"$DRIVER"/DEBIAN/control | grep "Version: " | cut -f
 if cat ./build_version.txt | grep "$(cat ./pika_nvidia.txt)"
 then
   echo "driver already built"
-  #exit 0
+  exit 0
 fi
 
 sed -i "s#nvidia-dkms-"$DRIVER"#nvidia-pika-kernel-module-"$DRIVER" | nvidia-dkms-"$DRIVER"#" ./nvidia-driver-"$DRIVER"/DEBIAN/control
