@@ -10,7 +10,7 @@ echo 'Pin: release c=external' > /etc/apt/preferences.d/0-a
 echo 'Pin-Priority: 1000' >> /etc/apt/preferences.d/0-a
 echo 'Package: *' >> /etc/apt/preferences.d/0-a
 echo 'Pin: release c=ubuntu' >> /etc/apt/preferences.d/0-a
-echo 'Pin-Priority: 1000' >> /etc/apt/preferences.d/0-a
+echo 'Pin-Priority: 950' >> /etc/apt/preferences.d/0-a
 # Clone Upstream
 apt update -y
 apt download nvidia-driver-"$DRIVER"
