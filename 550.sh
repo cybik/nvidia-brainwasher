@@ -7,7 +7,7 @@ apt show nvidia-driver-$DRIVER 2>&1 | grep -v "does not have a stable" | grep Ve
 
 rm -rfv /etc/apt/preferences.d/*
 echo 'Package: *' >> /etc/apt/preferences.d/0-a
-echo 'Pin: release c=external' > /etc/apt/preferences.d/0-a
+echo 'Pin: release c=external' >> /etc/apt/preferences.d/0-a
 echo 'Pin-Priority: 1000' >> /etc/apt/preferences.d/0-a
 echo 'Package: *' >> /etc/apt/preferences.d/0-a
 echo 'Pin: release c=ubuntu' >> /etc/apt/preferences.d/0-a
